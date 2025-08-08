@@ -9,7 +9,7 @@ terraform {
 
 provider "aws" {
   # Configuration options
-  region     = "us-west-1"
+  region     = "us-west-2"
 }
 
 
@@ -23,12 +23,12 @@ locals {
     main  = "t3.large"
     minor = "t3.micro"
     prod  = "t3.large"
-    dev   = "t2.micro"
+    dev   = "t3.nano"
   }
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"
+  ami           = "ami-04e08e36e17a21b56"
   instance_type = lookup(local.instance_types, var.env, "t2.nano")
 
   tags = {
