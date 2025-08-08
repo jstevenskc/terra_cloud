@@ -43,6 +43,6 @@ resource "aws_internet_gateway" "terra_igw" {
 }
 
 resource "aws_route_table_association" "terra_association" {
-  subnet_id      = aws_subnet.terra_subnet.id
+  subnet_id      = aws_subnet.terra_subnet[subnet1].id
   route_table_id = aws_route_table.terra_rt.id
 }
